@@ -34,9 +34,11 @@ It allows users to test job descriptions, provide feedback, and even retrain the
 Real (Correct) Job Postings:
 
 "Looking for a data analyst to join our finance team in New York."
+
 "Hiring a software engineer with experience in Python and Django."
 
 Fake (Incorrect) Job Postings:
 
 "Work from home and earn $5000 weekly with no experience required."
+
 "Urgent! Deposit $50 to secure your data entry job offer today."
