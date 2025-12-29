@@ -1,44 +1,59 @@
 # Fake Job Posting Detection
 
-This project is a **Streamlit web application** designed to detect whether a job posting is **real or fake** using a **Logistic Regression** model trained on textual job data.  
-It allows users to test job descriptions, provide feedback, and even retrain the model using the collected feedback for continuous improvement.
+A **Streamlit app** that detects whether a job posting is **real or fake** using a **Random Forest classifier**.  
+
+You can also give **feedback** to improve the model over time.  
 
 ---
 
-## 🚀 Features
+## Features
 
-- Detects **real** or **fake** job postings using NLP and machine learning  
-- Interactive **Streamlit web interface**  
-- Accepts **user feedback** on predictions (Correct / Incorrect)  
-- Allows **model retraining** using feedback data combined with the original dataset  
-- Displays **performance metrics** (Accuracy, Precision, Recall, F1 Score)  
-- Supports **real-time prediction** of custom job descriptions  
-
----
-
-## 🧠 How It Works
-
-1. **Data Loading:** Reads the dataset (`Fakejob_dataset.xlsx`)  
-2. **Text Preprocessing:** Cleans and tokenizes text (removes HTML, punctuation, stopwords, etc.)  
-3. **Feature Extraction:** Uses TF-IDF vectorization to transform text into numerical features  
-4. **Model Training:** Trains a Logistic Regression classifier  
-5. **Prediction:** Predicts if a given job posting is real (0) or fake (1)  
-6. **Feedback System:** Users can mark predictions as “Correct” or “Incorrect”  
-7. **Retraining:** Combines feedback data with the original dataset for retraining  
-8. **Cache Control:** Allows clearing cached data and restarting the app  
+- Test job postings for **real (0)** or **fake (1)**.  
+- View a **preview of the dataset**.  
+- See **model performance metrics** (Accuracy, Precision, Recall, F1).  
+- Provide **feedback** (Correct / Incorrect).  
+- **Retrain the model** using feedback.  
+- Uses **Streamlit caching** for faster loading and training.  
 
 ---
 
-## 💡 Example Test Sentences
+## Tools & Technologies
 
-Real (Correct) Job Postings:
+- **Python 3.x**  
+- **Streamlit**  
+- **pandas**  
+- **scikit-learn** (Random Forest, TF-IDF)  
+- **NLTK** (tokenization, stopwords, lemmatization)  
+- **joblib** (save/load model and vectorizer)  
 
-"Looking for a data analyst to join our finance team in New York."
+---
 
-"Hiring a software engineer with experience in Python and Django."
+## Dataset
 
-Fake (Incorrect) Job Postings:
+Contains job posting information like:  
 
-"Work from home and earn $5000 weekly with no experience required."
+- Title, Location, Department  
+- Company profile, Description, Requirements  
+- Employment type, Experience, Education  
+- Industry, Function  
+- Label: `fraudulent` (0 = real, 1 = fake)  
 
-"Urgent! Deposit $50 to secure your data entry job offer today."
+---
+
+## How It Works
+
+1. Job postings are **preprocessed** (cleaning, tokenization, stopwords removal, lemmatization).  
+2. Features are extracted using **TF-IDF**.  
+3. **Random Forest classifier** predicts whether the job is fake or real.  
+4. Users can provide feedback which is saved to `feedback.csv`.  
+5. Model can be **retrained with new feedback**.  
+6. Uses **cache** to avoid retraining or reloading unnecessarily.  
+
+---
+
+## Screenshots
+
+<img width="1344" height="598" alt="Screenshot 2025-12-29 164011" src="https://github.com/user-attachments/assets/2a39dc89-5805-4326-b22e-c731e183d107" />
+<img width="1336" height="602" alt="Screenshot 2025-12-29 164048" src="https://github.com/user-attachments/assets/af7534a8-0e45-4957-8031-647fbca6e71c" />
+
+
